@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart'; // 1. 플러터 부품 꾸러미 가져오기
+
+void main() {
+  runApp(
+    // 2. 앱을 실행해줘!
+    MaterialApp(
+      // 3. 구글 스타일의 디자인을 쓸 거야
+      home: Scaffold(
+        // 4. 앱의 기본 구조(도화지)를 펼쳐줘
+        appBar: AppBar(title: Text('나의 첫 앱'), backgroundColor: Colors.blue),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.all(20),
+              // 1. decoration은 '스타일'만 정합니다.
+              decoration: BoxDecoration(
+                color: Colors.blueGrey[100],
+                borderRadius: BorderRadius.circular(15), // 모서리 둥글게 추가!
+              ),
+              // 2. 내용물은 반드시 'child' 안에 넣습니다.
+              // 여러 개를 넣고 싶으니 Row(가로 바구니)를 사용합니다.
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.wb_sunny,
+                    size: 50,
+                    color: Colors.orange,
+                  ), // Icons.wb.sunny -> Icons.wb_sunny 오타 수정
+                  SizedBox(width: 20), // 아이콘과 글자 사이 간격
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start, // 글자를 왼쪽 정렬
+                    children: [
+                      Text(
+                        '1번 벌통',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text('상태: 정상', style: TextStyle(fontSize: 16)),
+                      Text('말벌 감지 중...', style: TextStyle(color: Colors.blue)),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
